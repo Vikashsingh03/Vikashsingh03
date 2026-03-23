@@ -6,24 +6,28 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # 👈 YE LINE ADD KAR (MOST IMPORTANT)
+  contents: write
 
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Generate Snake
+      # 👇 STEP 1: Repo checkout (VERY IMPORTANT)
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # 👇 STEP 2: Generate snake
+      - name: Generate snake
         uses: Platane/snk@v3
         with:
           github_user_name: Vikashsingh03
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg
+          outputs: dist/github-contribution-grid-snake.svg
 
-      - name: Push Snake to Output Branch
-        uses: JamesIves/github-pages-deploy-action@v4
+      # 👇 STEP 3: Deploy to output branch
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          branch: output
-          folder: dist
-          token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: output
