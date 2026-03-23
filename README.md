@@ -19,7 +19,7 @@ For Collaboration / Projects or Anything Tech 🚀😊
 <!-- Snake Game Repo View -->
 
 <div align="center">
-  <img src="https://github.com/Vikashsingh03/Vikashsingh03/blob/output/github-snake.svg" />
+  <img src="https://raw.githubusercontent.com/Vikashsingh03/Vikashsingh03/output/github-contribution-grid-snake.svg" />
 </div>
 
 
