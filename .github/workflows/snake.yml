@@ -5,6 +5,9 @@ on:
     - cron: "0 */12 * * *"
   workflow_dispatch:
 
+permissions:
+  contents: write   # 👈 YE LINE ADD KAR (MOST IMPORTANT)
+
 jobs:
   generate:
     runs-on: ubuntu-latest
